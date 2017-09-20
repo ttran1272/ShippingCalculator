@@ -13,6 +13,7 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Create variables
     private EditText weightEditText;
     public NumberFormat money = NumberFormat.getCurrencyInstance();
     private ShipItem shippingCost;
@@ -20,10 +21,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        shippingCost = new ShipItem(58.0);
+
+        // Initialize the ShipItem instance
+        shippingCost = new ShipItem();
+
         setContentView(R.layout.activity_main);
 
         weightEditText = (EditText) findViewById(R.id.weightEditText);
+
+        // Process the requestFocus from the EditText
         weightEditText.requestFocus();
 
         weightEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -34,11 +40,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Add the textChangedListener to the weightEditText widget
         TextChangeHandler tch = new TextChangeHandler();
         weightEditText.addTextChangedListener(tch);
 
     }
 
+    /**
+     * This function gets the text changed in the weightEditText
+     * and use the ShipItem class to calculate the shipping cost
+     * Then update the TextViews for base cost, added cost, and total cost with the updated values
+     */
     public void calculate() {
         String weightString = weightEditText.getText().toString();
         TextView baseCostTextView = (TextView) findViewById(R.id.baseCostTextView);
@@ -47,12 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             double weightAmount = Double.parseDouble(weightString);
+            shippingCost.setTotalCost(0.0);
+            shippingCost.setAddedCostPerWeight(0.0);
             shippingCost.setWeight(weightAmount);
+            shippingCost.calTotalCost();
 
             // ask Model to calculate the added cost and total cost
-            double baseCost = shippingCost.getBASECOSTPERWEIGHT();
-            double addedCost = shippingCost.getTotalAddedCost();
-            double totalCost = shippingCost.calTotalCost();
+            double baseCost = shippingCost.getBaseCostPerWeight();
+            double addedCost = shippingCost.getAddedCostPerWeight();
+            double totalCost = shippingCost.getTotalCost();
 
             // update the View with the new value in currency
             baseCostTextView.setText(money.format(baseCost));
@@ -66,7 +81,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This function handles the text changed in the EditText
+     */
     private class TextChangeHandler implements TextWatcher {
+
+        public void onTextChanged (CharSequence s, int start, int before, int after){
+            calculate();
+        }
 
         public void afterTextChanged(Editable e){
 
@@ -76,8 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        public void onTextChanged (CharSequence s, int start, int before, int after){
-            calculate();
-        }
+
     }
 }

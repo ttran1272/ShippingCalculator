@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Weight of the Package"
+        android:text="@string/weight_of_the_package"
+        style="@style/TextStyle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
@@ -23,7 +24,10 @@
         android:layout_height="wrap_content"
         android:selectAllOnFocus="true"
         android:layout_marginTop="25dp"
-        android:ems="10"
+        style="@style/TextStyle"
+        android:ems="15"
+        android:text="@string/initial_weight"
+        android:gravity="center"
         android:inputType="number"
         android:layout_below="@+id/titleTextView"
         android:layout_centerHorizontal="true"/>
@@ -33,7 +37,8 @@
         android:id="@+id/inOunces"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="in ounces"
+        android:text="@string/in_ounces"
+        style="@style/TextStyle"
         android:layout_marginTop="8dp"
         android:layout_below="@+id/weightEditText"
         android:layout_centerHorizontal="true"/>
@@ -42,7 +47,8 @@
         android:id="@+id/baseCostLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Base Cost:"
+        android:text="@string/base_cost"
+        style="@style/TextStyle"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/inOunces"
         android:layout_alignLeft="@+id/weightEditText"/>
@@ -52,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        style="@style/TextStyle"
         android:layout_below="@id/inOunces"
         android:layout_alignRight="@+id/weightEditText"/>
 
@@ -59,8 +66,9 @@
         android:id="@+id/addedCostLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Added Cost:"
-        android:layout_marginTop="20dp"
+        android:text="@string/added_cost"
+        style="@style/TextStyle"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/baseCostLabel"
         android:layout_alignLeft="@+id/weightEditText"/>
 
@@ -68,7 +76,8 @@
         android:id="@+id/addedCostTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
+        style="@style/TextStyle"
         android:layout_below="@id/baseCostTextView"
         android:layout_alignRight="@id/weightEditText"/>
 
@@ -76,8 +85,9 @@
         android:id="@+id/totalCostLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Cost:"
-        android:layout_marginTop="20dp"
+        android:text="@string/total_cost"
+        style="@style/TextStyle"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/addedCostLabel"
         android:layout_alignLeft="@+id/weightEditText"/>
 
@@ -85,7 +95,8 @@
         android:id="@+id/totalCostTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
+        style="@style/TextStyle"
         android:layout_alignRight="@id/weightEditText"
         android:layout_below="@id/addedCostTextView"/>
 
