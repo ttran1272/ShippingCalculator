@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shipping_background"
+    android:id="@+id/shippingRelativeLayout"
+    tools:context="edu.orangecoastcollege.cs273.ttran1272.shippingcalculator.MainActivity">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Weight of the Package"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/weightEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:selectAllOnFocus="true"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/titleTextView"
+        android:layout_centerHorizontal="true"/>
+        <requestFocus />
+
+    <TextView
+        android:id="@+id/inOunces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="in ounces"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/weightEditText"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/baseCostLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Base Cost:"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/inOunces"
+        android:layout_alignLeft="@+id/weightEditText"/>
+
+    <TextView
+        android:id="@+id/baseCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/inOunces"
+        android:layout_alignRight="@+id/weightEditText"/>
+
+    <TextView
+        android:id="@+id/addedCostLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Added Cost:"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/baseCostLabel"
+        android:layout_alignLeft="@+id/weightEditText"/>
+
+    <TextView
+        android:id="@+id/addedCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/baseCostTextView"
+        android:layout_alignRight="@id/weightEditText"/>
+
+    <TextView
+        android:id="@+id/totalCostLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Cost:"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/addedCostLabel"
+        android:layout_alignLeft="@+id/weightEditText"/>
+
+    <TextView
+        android:id="@+id/totalCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignRight="@id/weightEditText"
+        android:layout_below="@id/addedCostTextView"/>
+
+</RelativeLayout>
